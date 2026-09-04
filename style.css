@@ -1,0 +1,261 @@
+:root {
+    --primary-color: #ff4b72;
+    --secondary-color: #ff8fa3;
+    --bg-color: #fff0f3;
+    --text-color: #4a4a4a;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating Hearts Background */
+.hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 24px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Header & Keyframes */
+header.hero {
+    position: relative;
+    z-index: 1;
+    padding: 60px 20px;
+    background-image: url(images/IMG-20260904-WA0027[1].jpeg);
+    color: lab(100% 0.01 -0.01);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 6px 20px rgba(255, 75, 114, 0.3);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.bounce-in {
+    animation: bounceIn 1.2s ease;
+}
+
+.fade-in {
+    animation: fadeIn 2s ease;
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: translateY(-50px); }
+    60% { opacity: 1; transform: translateY(15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Layout Container */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Photo Gallery */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(255, 75, 114, 0.25);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 15px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Wishes Section */
+.wishes-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.wish-box {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.wish-box:hover {
+    transform: translateX(8px);
+}
+
+.funny-tag {
+    display: inline-block;
+    background-color: #ffe3e8;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Button & Animations */
+.cta-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 16px 35px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 30px 0;
+    box-shadow: 0 6px 20px rgba(255, 75, 114, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: #e03a5f;
+    transform: scale(1.05);
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Footer */
+footer {
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    color: #888;
+    position: relative;
+    z-index: 1;
+}
+
+/* Modal Popup */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+    background: var(--primary-color);
+}
+
+/* Confetti Piece Styling */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    z-index: 101;
+    pointer-events: none;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
